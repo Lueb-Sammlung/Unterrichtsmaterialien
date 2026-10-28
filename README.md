@@ -1,6 +1,6 @@
 # ✏️ Anleitung: So pflegst du die Mathe-Seite
 
-**Die Seite:** https://lueb-sammlung.github.io/Unterrichtsmaterialien-Neu/
+**Die Seite:** https://lueb-sammlung.github.io/Unterrichtsmaterialien/
 
 **Du bist hier richtig**, wenn du etwas auf der Seite ändern willst. Diese Anleitung steht immer hier. Du findest sie über den Link **✏️ Seite bearbeiten** ganz unten auf der Seite.
 
