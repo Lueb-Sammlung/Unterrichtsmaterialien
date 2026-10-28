@@ -6,6 +6,10 @@
 #   Dateien                     -> Einträge (HTML, PDF, Word, PowerPoint, Excel, Bilder)
 #   links.txt                   -> Links ins Internet, eine Zeile pro Link:  Titel | https://...
 #
+# Dateien, die der Browser nicht selbst anzeigen kann (GeoGebra, Word, PowerPoint, Excel, ZIP …),
+# bekommen einen Knopf "Herunterladen". Liegen sie direkt im Gruppen-Ordner, stehen sie
+# gesammelt im Abschnitt "Downloads" (vor den Links).
+#
 # Eine Zahl vorne im Namen bestimmt die Reihenfolge und wird nicht angezeigt:
 #   "1 Natürliche Zahlen", "2 Geometrie"  ->  "Natürliche Zahlen", "Geometrie"
 
@@ -29,7 +33,17 @@ TYPEN = {
     ".png": "Bild", ".jpg": "Bild", ".jpeg": "Bild", ".gif": "Bild",
     ".ggb": "GeoGebra", ".mp4": "Video", ".mp3": "Audio", ".zip": "ZIP",
 }
-SYMBOL = {"Ansehen": "🖥️", "PDF": "📄", "Bild": "🖼️", "Video": "🎬", "Audio": "🎧"}
+SYMBOL = {
+    "Ansehen": "🖥️", "PDF": "📄", "Bild": "🖼️", "Video": "🎬", "Audio": "🎧",
+    "GeoGebra": "📐", "Word": "📝", "Text": "📝", "PowerPoint": "📊", "Präsentation": "📊",
+    "Excel": "📈", "Tabelle": "📈", "ZIP": "🗜️",
+}
+# Diese Typen öffnet der Browser direkt – alles andere wird heruntergeladen.
+IM_BROWSER = {"Ansehen", "PDF", "Bild", "Video", "Audio"}
+
+
+def ist_download(e):
+    return e["typ"] != "Link" and e["typ"] not in IM_BROWSER
 
 
 def sortierschluessel(name):
@@ -92,11 +106,16 @@ def ordner_lesen(ordner):
 
 def eintrag_html(e):
     symbol = "🔗" if e["typ"] == "Link" else SYMBOL.get(e["typ"], "📎")
-    knopf = "Öffnen" if e["typ"] == "Link" else "Ansehen"
+    if e["typ"] == "Link":
+        knopf, farbe, ziel = "Öffnen", "text-bg-success", 'target="_blank" rel="noopener"'
+    elif ist_download(e):
+        knopf, farbe, ziel = f"⬇ {e['typ']}", "text-bg-warning", "download"
+    else:
+        knopf, farbe, ziel = "Ansehen", "text-bg-primary", 'target="_blank" rel="noopener"'
     return f"""
-          <a href="{html.escape(e['url'])}" target="_blank" rel="noopener" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center gap-3 eintrag">
+          <a href="{html.escape(e['url'])}" {ziel} class="list-group-item list-group-item-action d-flex justify-content-between align-items-center gap-3 eintrag">
             <span>{symbol} {html.escape(e['titel'])}</span>
-            <span class="badge rounded-pill {'text-bg-success' if e['typ'] == 'Link' else 'text-bg-primary'}">{html.escape(knopf)}</span>
+            <span class="badge rounded-pill {farbe}">{html.escape(knopf)}</span>
           </a>"""
 
 
@@ -104,6 +123,10 @@ gruppen = []
 for name in sorted(os.listdir("."), key=sortierschluessel):
     if os.path.isdir(name) and name not in AUSGESCHLOSSEN and not name.startswith("."):
         eintraege, themen, links = ordner_lesen(name)
+        downloads = [e for e in eintraege if ist_download(e)]
+        eintraege = [e for e in eintraege if not ist_download(e)]
+        if downloads:  # Download-Dateien der Gruppe als eigener Abschnitt
+            themen.append(("Downloads", downloads))
         if links:  # Links der Gruppe kommen als eigener Abschnitt ans Ende
             themen.append(("Links", links))
         gruppen.append((anzeigename(name), eintraege, themen))

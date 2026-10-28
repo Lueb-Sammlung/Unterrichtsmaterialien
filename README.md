@@ -16,6 +16,7 @@
 | ein Ordner im Ordner, z. B. `Bruchrechnung` | eine blaue Zwischenüberschrift im Kasten |
 | eine Datei, z. B. `Brüche kürzen.pdf` | ein Eintrag „Brüche kürzen“ mit **Ansehen** |
 | eine Zeile in `links.txt`       | ein Internet-Link mit **Öffnen** |
+| eine GeoGebra-, Word-, PowerPoint- oder Excel-Datei | ein Eintrag unter **Downloads** mit **⬇ Herunterladen** |
 
 **Nach jeder Änderung 2 Minuten warten**, dann die Seite neu laden. Erst dann ist die Änderung zu sehen.
 
@@ -37,6 +38,14 @@
 ✅ Fertig. Nach 2 Minuten steht das Arbeitsblatt auf der Seite.
 
 **Mehrere Dateien auf einmal** gehen auch. Einfach alle zusammen in das Feld ziehen.
+
+---
+
+## ⬇️ Eine Datei zum Herunterladen hinzufügen (z. B. GeoGebra `.ggb`)
+
+Genau wie ein Arbeitsblatt: Datei passend benennen und über „Datei hochladen“ in die Gruppe legen (siehe oben).
+
+Die Seite erkennt solche Dateien von selbst. Sie stehen dann im Abschnitt **Downloads** und haben einen gelben Knopf zum Herunterladen. Das gilt für GeoGebra (`.ggb`), Word (`.docx`), PowerPoint (`.pptx`), Excel (`.xlsx`) und ZIP-Dateien. PDFs und Bilder bleiben wie bisher zum direkten **Ansehen**.
 
 ---
 
