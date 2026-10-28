@@ -92,7 +92,7 @@ def ordner_lesen(ordner):
 
 def eintrag_html(e):
     symbol = "🔗" if e["typ"] == "Link" else SYMBOL.get(e["typ"], "📎")
-    knopf = "Öffnen" if e["typ"] == "Link" else e["typ"]
+    knopf = "Öffnen" if e["typ"] == "Link" else "Ansehen"
     return f"""
           <a href="{html.escape(e['url'])}" target="_blank" rel="noopener" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center gap-3 eintrag">
             <span>{symbol} {html.escape(e['titel'])}</span>
