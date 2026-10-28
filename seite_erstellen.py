@@ -167,12 +167,15 @@ seite = f"""<!DOCTYPE html>
     .thema {{ margin-top: 1rem; }}
     .thema-titel {{ color: #0d6efd; text-transform: uppercase; letter-spacing: .04em; font-size: .8rem; font-weight: 700; margin-bottom: .25rem; }}
     .list-group-item:hover {{ background-color: #f1f3f5; }}
+    #qr-fenster {{ border: none; border-radius: 1rem; padding: 2rem; box-shadow: 0 10px 40px rgba(0,0,0,.25); text-align: center; }}
+    #qr-fenster::backdrop {{ background: rgba(0,0,0,.5); }}
+    #qr-bild img, #qr-bild canvas {{ margin: 0 auto; width: min(70vw, 320px); height: auto; }}
   </style>
 </head>
 <body>
   <div class="container" style="max-width: 900px">
     <header class="text-center mb-4">
-      <h1 class="display-6 fw-bold">📚 {html.escape(SEITENTITEL)}</h1>
+      <h1 class="display-6 fw-bold"><span id="qr-knopf">📚</span> {html.escape(SEITENTITEL)}</h1>
       <p class="lead text-muted">{html.escape(UNTERTITEL)}</p>
     </header>
 
@@ -190,7 +193,37 @@ seite = f"""<!DOCTYPE html>
     <footer class="text-center text-muted small mt-4">Stand: {stand}</footer>
   </div>
 
+  <!-- Verstecktes Extra: Klick auf 📚 öffnet einen QR-Code zu dieser Seite -->
+  <dialog id="qr-fenster">
+    <div id="qr-bild"></div>
+    <p class="text-muted small mt-3 mb-3" id="qr-adresse"></p>
+    <button type="button" class="btn btn-primary" id="qr-schliessen">Schließen</button>
+  </dialog>
+
   <script>
+    (function () {{
+      const fenster = document.getElementById("qr-fenster");
+      const adresse = location.origin + location.pathname.replace(/index\\.html$/, "");
+      let fertig = false;
+      function zeigen() {{
+        if (!fertig) {{
+          new QRCode(document.getElementById("qr-bild"), {{ text: adresse, width: 512, height: 512, correctLevel: QRCode.CorrectLevel.M }});
+          document.getElementById("qr-adresse").textContent = adresse;
+          fertig = true;
+        }}
+        fenster.showModal();
+      }}
+      document.getElementById("qr-knopf").addEventListener("click", function () {{
+        if (window.QRCode) return zeigen();
+        const skript = document.createElement("script");
+        skript.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+        skript.onload = zeigen;
+        document.head.appendChild(skript);
+      }});
+      document.getElementById("qr-schliessen").addEventListener("click", function () {{ fenster.close(); }});
+      fenster.addEventListener("click", function (e) {{ if (e.target === fenster) fenster.close(); }});
+    }})();
+
     document.getElementById("suche").addEventListener("input", function () {{
       const woerter = this.value.toLowerCase().trim().split(/\\s+/).filter(Boolean);
       let gesamt = 0;
