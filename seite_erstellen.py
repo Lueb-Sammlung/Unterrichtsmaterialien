@@ -21,7 +21,7 @@ from urllib.parse import quote
 from zoneinfo import ZoneInfo
 
 SEITENTITEL = "Mathematik – Unterrichtsmaterialien"
-UNTERTITEL = "Arbeitsblätter, Lernumgebungen und Links für Mathematik 5, Mathematik 6 und den Mathematik-Kurs"
+UNTERTITEL = "Arbeitsblätter, Lernumgebungen und Links"
 
 AUSGESCHLOSSEN = {".git", ".github"}
 TYPEN = {
