@@ -23,7 +23,7 @@ from zoneinfo import ZoneInfo
 SEITENTITEL = "Mathematik – Unterrichtsmaterialien"
 UNTERTITEL = "Arbeitsblätter, Lernumgebungen und Links"
 
-AUSGESCHLOSSEN = {".git", ".github", "romfahrt"}  # romfahrt = eigener Belegungsplaner, nicht auf der Materialseite
+AUSGESCHLOSSEN = {".git", ".github"}
 TYPEN = {
     ".html": "Ansehen", ".htm": "Ansehen",
     ".pdf": "PDF",
