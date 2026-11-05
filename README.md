@@ -1,6 +1,6 @@
 # ✏️ Anleitung: So pflegst du die Mathe-Seite
 
-**Die Seite:** https://lueb-sammlung.github.io/Unterrichtsmaterialien/
+**Die Seite:** https://mathe-materialien.github.io/Unterrichtsmaterialien/
 
 **Du bist hier richtig**, wenn du etwas auf der Seite ändern willst. Diese Anleitung steht immer hier. Du findest sie über den Link **✏️ Seite bearbeiten** ganz unten auf der Seite.
 
@@ -28,9 +28,9 @@
 
 1. **Datei vorher passend benennen.** Der Dateiname wird zum Titel auf der Seite. Also zum Beispiel `Brüche kürzen.pdf` statt `Scan_0034.pdf`.
 2. Auf die passende Gruppe klicken:
-   - 👉 [**Mathematik 5** – Datei hochladen](https://github.com/lueb-sammlung/Unterrichtsmaterialien-Neu/upload/main/Mathematik%205)
-   - 👉 [**Mathematik 6** – Datei hochladen](https://github.com/lueb-sammlung/Unterrichtsmaterialien-Neu/upload/main/Mathematik%206)
-   - 👉 [**Mathematik Kurs** – Datei hochladen](https://github.com/lueb-sammlung/Unterrichtsmaterialien-Neu/upload/main/Mathematik%20Kurs)
+   - 👉 [**Mathematik 5** – Datei hochladen](https://github.com/mathe-materialien/Unterrichtsmaterialien/upload/main/Mathematik%205)
+   - 👉 [**Mathematik 6** – Datei hochladen](https://github.com/mathe-materialien/Unterrichtsmaterialien/upload/main/Mathematik%206)
+   - 👉 [**Mathematik Kurs** – Datei hochladen](https://github.com/mathe-materialien/Unterrichtsmaterialien/upload/main/Mathematik%20Kurs)
 3. Die Datei in das große Feld ziehen. Oder auf **choose your files** klicken und die Datei auswählen.
 4. Warten, bis die Datei unten in der Liste steht.
 5. Ganz unten auf den grünen Knopf **Commit changes** klicken. Das heißt so viel wie „Speichern“.
@@ -52,9 +52,9 @@ Die Seite erkennt solche Dateien von selbst. Sie stehen dann im Abschnitt **Down
 ## 🔗 Einen Internet-Link hinzufügen
 
 1. Auf die passende Gruppe klicken:
-   - 👉 [**Mathematik 5** – Links bearbeiten](https://github.com/lueb-sammlung/Unterrichtsmaterialien-Neu/edit/main/Mathematik%205/links.txt)
-   - 👉 [**Mathematik 6** – Links bearbeiten](https://github.com/lueb-sammlung/Unterrichtsmaterialien-Neu/edit/main/Mathematik%206/links.txt)
-   - 👉 [**Mathematik Kurs** – Links bearbeiten](https://github.com/lueb-sammlung/Unterrichtsmaterialien-Neu/edit/main/Mathematik%20Kurs/links.txt)
+   - 👉 [**Mathematik 5** – Links bearbeiten](https://github.com/mathe-materialien/Unterrichtsmaterialien/edit/main/Mathematik%205/links.txt)
+   - 👉 [**Mathematik 6** – Links bearbeiten](https://github.com/mathe-materialien/Unterrichtsmaterialien/edit/main/Mathematik%206/links.txt)
+   - 👉 [**Mathematik Kurs** – Links bearbeiten](https://github.com/mathe-materialien/Unterrichtsmaterialien/edit/main/Mathematik%20Kurs/links.txt)
 2. Ans Ende des Textes klicken und mit der **Enter-Taste** eine neue Zeile anfangen.
 3. Erst den Titel schreiben, dann einen senkrechten Strich `|`, dann die Internetadresse:
    ```
